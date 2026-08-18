@@ -1,15 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Main_menu_manager : MonoBehaviour
 {
-    public void LoadScene(string idk)
+    public void OnStartClick()
     {
-        SceneManager.LoadScene(idk);
+        SceneManager.LoadScene("idk");
     }
-
-    public void QuitGame()
+    public void Fuu()
     {
+        Debug.Log("message");
+    }
+    public void OnExitClick()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
         Application.Quit();
     }
 }
