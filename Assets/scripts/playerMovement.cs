@@ -7,6 +7,8 @@ public class playerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    private int points = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,5 +28,14 @@ public class playerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(movement.x * speed, movement.y * speed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            collision.gameObject.SetActive(false);
+
+        }
     }
 }
